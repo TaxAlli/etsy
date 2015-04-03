@@ -4,7 +4,14 @@ module Etsy
 
     attribute :id, :from => :transaction_id
     attribute :buyer_id, :from => :buyer_user_id
-    attributes :quantity, :listing_id
+    attribute :creation
+    attributes :quantity, :listing_id, :title,
+               :description, :price, :currency_code,
+               :tags, :materials, :image_listing_id,
+               :receipt_id, :shipping_cost, :is_digital,
+               :file_data, :listing_id, :is_quick_sale,
+               :seller_feedback_id, :buyer_feedback_id,
+               :transaction_type, :url, :variations
 
     def self.find_all_by_shop_id(shop_id, options = {})
       get_all("/shops/#{shop_id}/transactions", options)
