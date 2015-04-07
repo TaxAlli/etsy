@@ -6,7 +6,7 @@ module Etsy
     attribute :buyer_id, :from => :buyer_user_id
 
     attributes :quantity, :listing_id, :name, :first_line, :second_line, :city, :state, :zip, :country_id,
-               :payment_email, :buyer_email, :created_tsz
+               :payment_email, :buyer_email, :created_tsz, :last_modified_tsz, :total_tax_cost, :total_shipping_cost
 
     def self.find_all_by_shop_id(shop_id, options = {})
       get_all("/shops/#{shop_id}/receipts", options)
@@ -14,6 +14,10 @@ module Etsy
 
     def created_at
       Time.at(created_tsz)
+    end
+
+    def last_modified_at
+      Time.at(last_modified_tsz)
     end
 
     def buyer

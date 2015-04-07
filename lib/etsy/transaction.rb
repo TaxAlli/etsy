@@ -4,7 +4,7 @@ module Etsy
 
     attribute :id, :from => :transaction_id
     attribute :buyer_id, :from => :buyer_user_id
-    attribute :creation
+    attribute :creation, :from => :creation_tsz
     attributes :quantity, :listing_id, :title,
                :description, :price, :currency_code,
                :tags, :materials, :image_listing_id,
